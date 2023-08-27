@@ -1,5 +1,7 @@
 MainUI:
 
+#: import ew kivy.uix.effectwidget
+
 
 <MainUI>:
     BoxLayout:
@@ -8,7 +10,7 @@ MainUI:
         spacing:10
         canvas.before:
             Color:
-                rgba:1,1,1,0.3
+                rgba:1,1,1,0.2
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -41,6 +43,7 @@ MainUI:
             Label:
                 text:"Search food like Banana, chicken ...."
                 font_name:"fonts/Orbitron-Bold.ttf"
+                font_size:"12dp"
             MDIconButton:
                 icon:"card-search"
                 pos_hint:{"center_x":0.5, "center_y":0.5}
@@ -58,27 +61,71 @@ MainUI:
                 size_hint_y:None
                 height:"2000dp"
 
+                # Fruit juices and drinks.
                 LabelCard:
                     orientation:"vertical"
-                    padding:"10dp"
-                    MDLabel:
-                        text:"Fruits"
-                        font_name:"fonts/Orbitron-Bold.ttf"
-                        pos_hint:{"center_x":0.5, "center_y":0.5}
-                        halign:"center"
+                    height:"130dp"
+                    padding:10,10,10,10
+                    spacing:10
+
+                    InfoLabel:
+                        text:"Fruits Juices and Drinks"
+
+                    MDSeparator:
+                        height:"2dp"
+                        color:1,1,1,0.5
+
                     GridLayout:
                         cols:2
                         rows:2
+                        spacing:10
                         RoundedCard:
-                            pos_hint:{"center_x":0.5, "center_y":0.5}
-                            ripple_behavior: True
-                            focus_color:"cyan"
                             on_press:root.card_fire()
+                            md_bg_color:"#116530"
+                            InfoLabel:
+                                text:"Fruits Juices"
                         RoundedCard:
-                            pos_hint:{"center_x":0.5, "center_y":0.5}
-                            ripple_behavior: True
-                            focus_color:"cyan"
                             on_press:root.card_fire()
+                            md_bg_color:"#5DF15D"
+                            InfoLabel:
+                                text:"Drinks"
+
+
+                # Fruits and vegetables.
+                LabelCard:
+                    orientation:"vertical"
+                    height:"180dp"
+                    padding:10,10,10,10
+                    spacing:10
+
+                    InfoLabel:
+                        text:"Fruits and Vegetables"
+
+                    MDSeparator:
+                        height:"2dp"
+                        color:1,1,1,0.5
+
+                    GridLayout:
+                        cols:2
+                        rows:2
+                        spacing:10
+                        RoundedCard:
+                            on_press:root.card_fire()
+                            md_bg_color:"#81B622"
+                            InfoLabel:
+                                text:"Fruits"
+
+                        RoundedCard:
+                            on_press:root.card_fire()
+                            md_bg_color:"#3D550C"
+                            InfoLabel:
+                                text:"Vegetables"
+
+                        RoundedCard:
+                            on_press:root.card_fire()
+                            md_bg_color:"#FFA500"
+                            InfoLabel:
+                                text:"Tropical Fruits"
 
 
 
@@ -88,6 +135,8 @@ MainUI:
         BoxLayout:
             orientation:"horizontal"
             spacing:10
+            size_hint:1, None
+            height:"20dp"
             Button:
                 text:"Food Items"
                 on_press:
@@ -114,6 +163,8 @@ MainUI:
                 pos:self.pos
                 size:self.size
                 source:"images/bg7.png"
+
+
         Label:
             text:"Food Items"
         Button:
@@ -156,6 +207,18 @@ MainUI:
     font_name:"fonts/Orbitron-Bold.ttf"
     pos_hint:{"center_x":0.5, "center_y":0.5}
     size_hint:1, None
+    md_bg_color:"gray"
+
+# Custom MDLabel for info
+<InfoLabel@MDLabel>:
+    text:"Fruits"
+    size_hint:1, None
+    height:"30dp"
+    font_name:"fonts/Orbitron-Bold.ttf"
+    pos_hint:{"center_x":0.5, "center_y":0.5}
+    halign:"center"
+    valign:"top"
+
 
 
 

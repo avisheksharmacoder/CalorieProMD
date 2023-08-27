@@ -1,11 +1,13 @@
-from kivy.graphics.vertex_instructions import Rectangle
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.modalview import ModalView
-from kivymd.uix.card import MDCard
+from kivymd.uix.card import MDCard, MDSeparator
 from kivymd.uix.label import MDLabel
 from kivy.uix.boxlayout import BoxLayout
+
+
+
 
 
 
@@ -26,8 +28,6 @@ class FoodItems(Screen):
 class MainUI(Screen):
     def __abs__(self, **kwargs):
         super().__init__(**kwargs)
-
-    print("App started")
 
 
     def card_fire(self):

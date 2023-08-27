@@ -30,7 +30,6 @@ class MainUI(Screen):
     print("App started")
 
 
-
     def card_fire(self):
         print("card fired !!")
 

@@ -27,6 +27,8 @@ class MainUI(Screen):
     def __abs__(self, **kwargs):
         super().__init__(**kwargs)
 
+    print("App started")
+
 
 
     def card_fire(self):

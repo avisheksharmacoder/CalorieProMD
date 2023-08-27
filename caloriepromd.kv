@@ -1,0 +1,164 @@
+MainUI:
+
+
+<MainUI>:
+    BoxLayout:
+        orientation:"vertical"
+        padding:10
+        spacing:10
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"images/bg2.png"
+
+
+        # Main Heading = Calorie Pro.
+        Label:
+            text:"Calorie Pro"
+            font_size:"40dp"
+            font_name:"fonts/Orbitron-Bold.ttf"
+            color:0,1,0,1
+            size_hint:1, None
+            height:"60dp"
+
+        # Sub heading.
+        Label:
+            text:"Your Best Calorie Encyclopedia"
+            font_size:"15dp"
+            font_name:"fonts/Orbitron-Bold.ttf"
+            color:0,1,0,0.8
+            size_hint:1, None
+            height:"20dp"
+
+        # Search food text and icon search button.
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint:1, None
+            height:"50dp"
+            Label:
+                text:"Search food like Banana, chicken ...."
+                font_name:"fonts/Orbitron-Bold.ttf"
+            MDIconButton:
+                icon:"card-search"
+                pos_hint:{"center_x":0.5, "center_y":0.5}
+                on_press:
+                    root.manager.current = "search_view"
+                    root.manager.transition.direction = "left"
+
+
+        # Scroll View containing all other Food Items.
+        MDScrollView:
+            effect_cls:"ScrollEffect"
+            GridLayout:
+                cols:1
+                spacing:10
+                size_hint_y:None
+                height:"2000dp"
+
+                LabelCard:
+                    orientation:"vertical"
+                    padding:"10dp"
+                    MDLabel:
+                        text:"Fruits"
+                        font_name:"fonts/Orbitron-Bold.ttf"
+                        pos_hint:{"center_x":0.5, "center_y":0.5}
+                        halign:"center"
+                    GridLayout:
+                        cols:2
+                        rows:2
+                        RoundedCard:
+                            pos_hint:{"center_x":0.5, "center_y":0.5}
+                            ripple_behavior: True
+                            focus_color:"cyan"
+                            on_press:root.card_fire()
+                        RoundedCard:
+                            pos_hint:{"center_x":0.5, "center_y":0.5}
+                            ripple_behavior: True
+                            focus_color:"cyan"
+                            on_press:root.card_fire()
+
+
+
+
+
+
+        BoxLayout:
+            orientation:"horizontal"
+            spacing:10
+            Button:
+                text:"Food Items"
+                on_press:
+                    root.manager.current = "food_items"
+                    root.manager.transition.direction = "left"
+
+            RoundedCard:
+                pos_hint:{"center_x":0.5, "center_y":0.5}
+                ripple_behavior: True
+                focus_color:"cyan"
+                on_press:root.card_fire()
+
+
+
+
+
+<FoodItems>:
+    BoxLayout:
+        orientation:"vertical"
+        canvas.before:
+            Color:
+                rgba:1,1,1,0.3
+            Rectangle:
+                pos:self.pos
+                size:self.size
+                source:"images/bg7.png"
+        Label:
+            text:"Food Items"
+        Button:
+            text:"Go to Main View"
+            on_press:
+                root.manager.current = "main_ui"
+                root.manager.transition.direction = "right"
+
+
+<SearchView>:
+    BoxLayout:
+        Label:
+            text:"Search View"
+        Button:
+            text:"Go to Main View"
+            on_press:
+                root.manager.current = "main_ui"
+                root.manager.transition.direction = "right"
+
+
+
+
+# Custom Cards collections.
+
+# normal card.
+<BasicCard@MDCard>:
+    font_name:"fonts/Orbitron-Bold.ttf"
+    pos_hint:{"center_x":0.5, "center_y":0.5}
+    ripple_behavior: True
+
+# Rounded card with 50px radius.
+<RoundedCard@MDCard>:
+    font_name:"fonts/Orbitron-Bold.ttf"
+    pos_hint:{"center_x":0.5, "center_y":0.5}
+    ripple_behavior: True
+    radius:[50,50,50,50]
+
+# Labels card.
+<LabelCard@MDCard>:
+    font_name:"fonts/Orbitron-Bold.ttf"
+    pos_hint:{"center_x":0.5, "center_y":0.5}
+    size_hint:1, None
+
+
+
+
+
+
